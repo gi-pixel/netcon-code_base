@@ -1,0 +1,285 @@
+/* ============================================
+   NETCON ABOUT PAGE SPECIFIC STYLES
+   Only styles NOT already in global CSS
+   Use in addition to netcon-global.css
+   ============================================ */
+
+/* story section */
+.story-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin: 4rem 0 6rem;
+}
+
+.story-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.8rem;
+  color: var(--netcon-deep-purple);
+}
+
+.story-content p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.story-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+.story-stat {
+  text-align: center;
+}
+
+.story-stat .number {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--purple-primary);
+}
+
+.story-stat .label {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.story-image {
+  background: linear-gradient(145deg, #ede5ff, #ffffff);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-medium);
+  box-shadow: var(--shadow-md);
+}
+
+.story-image i {
+  font-size: 12rem;
+  color: var(--purple-primary);
+  opacity: 0.7;
+  filter: drop-shadow(0 20px 20px #d2bcff);
+}
+
+/* values grid */
+.values-section {
+  background: var(--bg-soft);
+  border-radius: var(--radius-xl);
+  padding: 5rem 4rem;
+  margin: 5rem 0;
+}
+
+.values-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 4rem auto;
+}
+
+.values-header h2 {
+  font-size: 2.5rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.value-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-large);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  border: 1px solid var(--border-light);
+  transition: var(--transition-default);
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.value-icon {
+  background: var(--bg-purple-light);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.8rem;
+  color: var(--purple-primary);
+  font-size: 2.2rem;
+}
+
+.value-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.value-card p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* leadership team */
+.team-section {
+  margin: 6rem 0;
+}
+
+.team-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.team-header h2 {
+  font-size: 2.5rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.team-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  border: 1px solid var(--border-light);
+  text-align: center;
+  transition: var(--transition-default);
+}
+
+.team-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.team-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--bg-purple-light);
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--purple-primary);
+  color: var(--purple-primary);
+  font-size: 3rem;
+}
+
+.team-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.team-title {
+  color: var(--purple-primary);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.team-bio {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.team-social {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.team-social i {
+  color: var(--purple-icon-bg);
+  background: #f1edff;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: var(--transition-default);
+  cursor: pointer;
+}
+
+.team-social i:hover {
+  background: var(--purple-primary);
+  color: white;
+}
+
+/* certifications */
+.cert-section {
+  background: linear-gradient(105deg, var(--netcon-deep-purple) 0%, #2f1b57 100%);
+  border-radius: var(--radius-xl);
+  padding: 4rem;
+  margin: 5rem 0;
+  color: white;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.cert-item {
+  text-align: center;
+}
+
+.cert-item i {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #d3b9ff;
+}
+
+.cert-item h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.cert-item p {
+  opacity: 0.8;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* responsive overrides - only for about-specific elements */
+@media screen and (max-width: 950px) {
+  .story-section {
+    grid-template-columns: 1fr;
+  }
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  .cert-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .values-section {
+    padding: 3rem 1.5rem;
+  }
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+  .story-image {
+    height: 250px;
+  }
+  .story-image i {
+    font-size: 8rem;
+  }
+}

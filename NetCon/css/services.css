@@ -1,0 +1,191 @@
+/* ============================================
+   NETCON SERVICES PAGE SPECIFIC STYLES
+   Only styles NOT already in global CSS
+   Use in addition to netcon-global.css
+   ============================================ */
+
+/* service detail cards */
+.services-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: 3rem 0 5rem;
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  padding: 2.8rem;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-default);
+}
+
+.service-row:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.service-info h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--netcon-deep-purple);
+  margin-bottom: 1rem;
+}
+
+.service-info p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.feature-list {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: var(--text-soft);
+}
+
+.feature-list i {
+  color: var(--purple-primary);
+  font-size: 1.2rem;
+  width: 1.8rem;
+  text-align: center;
+}
+
+.service-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat-mini {
+  background: var(--bg-soft-purple);
+  border-radius: 1.5rem;
+  padding: 1rem 1.5rem;
+  text-align: center;
+}
+
+.stat-mini .number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--purple-primary);
+}
+
+.stat-mini div {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.service-image {
+  background: linear-gradient(145deg, #f3edff, #ffffff);
+  border-radius: var(--radius-large);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-medium);
+  overflow: hidden;
+  width: 100%;
+  height: 450px;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: calc(var(--radius-large) - 2px);
+}
+
+.service-image i {
+  font-size: 8rem;
+  color: var(--purple-primary);
+  opacity: 0.8;
+  filter: drop-shadow(0 10px 12px #c7b5ff);
+}
+
+/* engagement models */
+.engagement-section {
+  background: var(--bg-soft);
+  border-radius: var(--radius-xl);
+  padding: 4rem;
+  margin: 5rem 0;
+  border: 1px solid var(--border-soft);
+}
+
+.engagement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.engagement-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-large);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  border: 1px solid var(--border-light);
+  transition: var(--transition-default);
+}
+
+.engagement-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.engagement-card i {
+  font-size: 2.8rem;
+  color: var(--purple-primary);
+  background: var(--bg-purple-light);
+  padding: 1.2rem;
+  border-radius: 2rem;
+  margin-bottom: 1.8rem;
+}
+
+.engagement-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: var(--netcon-deep-purple);
+}
+
+.engagement-card p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* responsive overrides - only for services-specific elements */
+@media screen and (max-width: 950px) {
+  .service-row {
+    grid-template-columns: 1fr;
+  }
+  .engagement-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .service-row {
+    padding: 1.8rem;
+  }
+  .service-image i {
+    font-size: 5rem;
+  }
+  .service-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .engagement-section {
+    padding: 2rem;
+  }
+}

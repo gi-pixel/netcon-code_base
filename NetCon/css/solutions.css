@@ -1,0 +1,197 @@
+/* ============================================
+   NETCON SOLUTIONS PAGE SPECIFIC STYLES
+   Only styles NOT already in global CSS
+   Use in addition to netcon-global.css
+   ============================================ */
+
+/* solutions grid */
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.solution-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-default);
+  position: relative;
+  overflow: hidden;
+}
+
+.solution-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.solution-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, transparent 70%, var(--bg-purple-light) 100%);
+  border-radius: 0 0 0 120px;
+  opacity: 0.5;
+}
+
+.solution-icon {
+  font-size: 3rem;
+  color: var(--purple-primary);
+  background: var(--bg-purple-light);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.solution-card h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--netcon-deep-purple);
+}
+
+.solution-card p {
+  color: var(--text-secondary);
+  margin-bottom: 1.8rem;
+  line-height: 1.6;
+}
+
+.solution-features {
+  list-style: none;
+  margin: 1.5rem 0;
+}
+
+.solution-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+}
+
+.solution-features i {
+  color: var(--purple-primary);
+  font-size: 1rem;
+}
+
+.solution-tag {
+  display: inline-block;
+  background: var(--bg-soft-purple);
+  padding: 0.4rem 1.2rem;
+  border-radius: 60px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-bright);
+  border: 1px solid var(--border-strong);
+  margin-top: 1rem;
+}
+
+/* integrated solutions banner */
+.integrated-banner {
+  background: linear-gradient(105deg, var(--netcon-deep-purple) 0%, #2d1a55 100%);
+  border-radius: var(--radius-xl);
+  padding: 3.5rem;
+  margin: 4rem 0;
+  color: white;
+}
+
+
+
+.integrated-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.integrated-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-large);
+  padding: 1.8rem;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.integrated-item i {
+  font-size: 2rem;
+  color: #d7b9ff;
+  margin-bottom: 1rem;
+}
+
+.integrated-item h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.integrated-item p {
+  opacity: 0.8;
+  font-size: 0.95rem;
+}
+
+/* case study preview */
+.case-study-section {
+  background: var(--bg-soft);
+  border-radius: var(--radius-xl);
+  padding: 4rem;
+  margin: 5rem 0;
+}
+
+.case-study-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.case-study-content h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.case-study-metrics {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.metric-circle {
+  text-align: center;
+}
+
+.metric-circle .number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--purple-primary);
+}
+
+/* responsive overrides - only for solution-specific elements */
+@media screen and (max-width: 950px) {
+  .solutions-grid {
+    grid-template-columns: 1fr;
+  }
+  .integrated-grid {
+    grid-template-columns: 1fr;
+  }
+  .case-study-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .case-study-section {
+    padding: 2rem;
+  }
+}
