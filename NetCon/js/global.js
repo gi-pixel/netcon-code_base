@@ -307,4 +307,66 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== ADDITIONAL UTILITY FUNCTIONS =====
 
-// Debounce function for performance (optional)
+// Add this JavaScript to handle AJAX submission //
+
+document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contactForm');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get the submit button
+      const submitBtn = contactForm.querySelector('.btn-submit');
+      const originalText = submitBtn.innerHTML;
+      
+      // Show loading state
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> sending...';
+      submitBtn.disabled = true;
+      
+      // Collect form data
+      const formData = new FormData(contactForm);
+      
+      // Send to Formspree using fetch API
+      fetch('https://formspree.io/f/YOUR_FORM_ID_HERE', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Success - redirect to your custom thank you page
+          window.location.href = 'thank-you.html';
+        } else {
+          // Error from Formspree
+          return response.json().then(data => {
+            throw new Error(data.error || 'Form submission failed');
+          });
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        
+        // Show error message
+        const feedback = document.getElementById('formFeedback') || document.createElement('div');
+        feedback.id = 'formFeedback';
+        feedback.className = 'form-feedback error';
+        feedback.textContent = 'Failed to send. Please try again or email us directly at hello@netcon.io';
+        
+        // Insert feedback if not exists
+        if (!document.getElementById('formFeedback')) {
+          contactForm.appendChild(feedback);
+        }
+        
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        
+        // Scroll to feedback
+        feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    });
+  }
+});
