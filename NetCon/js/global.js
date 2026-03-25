@@ -396,3 +396,35 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+
+
+// ===== TAWK.TO LIVE CHAT WIDGET =====
+var Tawk_API = Tawk_API || {};
+var Tawk_LoadStart = new Date();
+
+(function() {
+  var s1 = document.createElement("script");
+  var s0 = document.getElementsByTagName("script")[0];
+  s1.async = true;
+  s1.src = 'https://embed.tawk.to/69c3d3f335e8d61c3a875707/1jkif7sso';
+  s1.charset = 'UTF-8';
+  s1.setAttribute('crossorigin', '*');
+  s0.parentNode.insertBefore(s1, s0);
+})();
+
+// Optional: Custom welcome message
+Tawk_API.onLoad = function() {
+  Tawk_API.setAttributes({
+    'name': 'NETCON Visitor',
+    'email': 'visitor@example.com'
+  }, function(error) {
+    // Callback function
+  });
+};
+
+// Set custom greeting
+Tawk_API.visitor = {
+  name: "Guest",
+  email: ""
+};
