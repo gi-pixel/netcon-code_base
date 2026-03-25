@@ -172,22 +172,48 @@ document.addEventListener('DOMContentLoaded', function() {
   // Check on scroll
   window.addEventListener('scroll', handleStickyHeader);
   
-  // ===== ACTIVE PAGE HIGHLIGHTING =====
-  function highlightActivePage() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinksItems = document.querySelectorAll('.nav-links a');
-    
-    navLinksItems.forEach(link => {
-      const linkPage = link.getAttribute('href');
-      if (linkPage === currentPage) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
+  
+// ===== ACTIVE PAGE HIGHLIGHTING - COMPLETE WORKING VERSION =====
+function highlightActivePage() {
+  // Get current page filename
+  let currentUrl = window.location.pathname;
+  let currentPage = currentUrl.split('/').pop();
+  
+  // Handle root/index
+  if (!currentPage || currentPage === '' || currentPage === '/') {
+    currentPage = 'index.html';
   }
   
-  highlightActivePage();
+  // Remove any query parameters or hash
+  currentPage = currentPage.split('?')[0].split('#')[0];
+  
+  const navLinks = document.querySelectorAll('.nav-links a');
+  
+  navLinks.forEach(link => {
+    // Remove existing active class
+    link.classList.remove('active');
+    
+    // Get link href and clean it
+    let linkHref = link.getAttribute('href');
+    let linkPage = linkHref.split('/').pop().split('?')[0].split('#')[0];
+    
+    // Compare
+    if (linkPage === currentPage) {
+      link.classList.add('active');
+    }
+    
+    // Special case for index
+    if (currentPage === 'index.html' && linkPage === 'index.html') {
+      link.classList.add('active');
+    }
+  });
+}
+
+// Run on page load
+document.addEventListener('DOMContentLoaded', highlightActivePage);
+
+// Run after everything loads (catch any late changes)
+window.addEventListener('load', highlightActivePage);
   
   // ===== MODAL FUNCTIONALITY (if modal exists on page) =====
   const modalOverlay = document.getElementById('legalModal');
@@ -328,7 +354,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const formData = new FormData(contactForm);
       
       // Send to Formspree using fetch API
-      fetch('https://formspree.io/f/YOUR_FORM_ID_HERE', {
+      fetch('https://formspree.io/f/xeergagw', {
         method: 'POST',
         body: formData,
         headers: {
