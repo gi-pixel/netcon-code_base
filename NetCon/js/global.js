@@ -1,3 +1,78 @@
+// ===== DARK/LIGHT MODE FUNCTIONALITY =====
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('themeToggle');
+  
+  // Function to set theme
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      
+      // Update button icon and text
+      if (themeToggle) {
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i><span>Light</span>';
+        themeToggle.setAttribute('aria-label', 'Switch to light mode');
+      }
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+      
+      // Update button icon and text
+      if (themeToggle) {
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i><span>Dark</span>';
+        themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+      }
+    }
+  }
+  
+  // Check saved theme preference
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    setTheme('dark');
+  } else {
+    setTheme('light');
+  }
+  
+  // Toggle theme on button click
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      
+      if (currentTheme === 'dark') {
+        setTheme('light');
+      } else {
+        setTheme('dark');
+      }
+    });
+  }
+  
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+    const savedTheme = localStorage.getItem('theme');
+    // Only auto-switch if user hasn't manually set a preference
+    if (!savedTheme) {
+      if (e.matches) {
+        setTheme('dark');
+      } else {
+        setTheme('light');
+      }
+    }
+  });
+});
+
+
+const toggle = document.getElementById("themeToggle");
+const icon = toggle.querySelector("i");
+
+toggle.addEventListener("click", () => {
+  icon.classList.toggle("fa-moon");
+  icon.classList.toggle("fa-sun");
+});
+
+
 // Add this JavaScript to your global scripts
 
 // Modal functionality
